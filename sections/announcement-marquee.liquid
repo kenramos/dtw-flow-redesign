@@ -1,0 +1,226 @@
+{% assign socialIconAdded = false %}
+{% if
+  settings.sm_facebook_link != blank or
+  settings.sm_twitter_link != blank or
+  settings.sm_youtube_link != blank or
+  settings.sm_flickr_link != blank or
+  settings.sm_pinterest_link != blank or
+  settings.sm_instagram_link != blank or
+  settings.sm_tumblr_link != blank or
+  settings.sm_pinterest_link != blank or
+  settings.sm_youtube_link != blank or
+  settings.sm_vimeo_link != blank or
+  settings.sm_flickr_link != blank or
+  settings.sm_snapchat_link != blank or
+  settings.sm_houzz_link != blank or
+  settings.sm_linkedin_link != blank or
+  settings.sm_tiktok_link != blank %}
+    {% assign socialIconAdded = true %}
+{% endif %}
+
+{% if section.settings.enable_announcement_marquee %}
+
+  {% assign count = 5 %}
+  <div class="announcement-marquee {% unless section.settings.enable_social_icons and socialIconAdded %} no-icons{% endunless %}">
+    {% if section.settings.enable_social_icons and socialIconAdded %}
+    <div id="marquee-social-icons" class="social-sharing is-clean">
+      {% render 'social-icons' %}
+    </div>
+    {% endif %} 
+    <div
+      class="bw-brandsMarquee overflow-hidden"
+      dataMarquee
+    >
+      <div class="bw-brandsMarquee__wrapper bw-brandsMarquee__wrapper--{{ section.id }}">
+        {% for i in (1..count) %}
+          <div class="bw-brandsMarquee__innerImage">
+            {% for block in section.blocks %}
+              <p class="bw-brandsMarquee__heading">
+                {{ block.settings.title }}
+              </p>
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+  </div>
+
+  <style>
+    .announcement-marquee {
+      background-color: {{ section.settings.marquee--background-color }};
+
+     @media (min-width: 768px) {
+       display: flex;
+       justify-content: space-evenly;
+       align-items: center;
+      }
+    }
+
+    .bw-brandsMarquee {      
+      @media (min-width: 768px) {
+        max-width: 80%
+      }
+
+    #marquee-social-icons.social-sharing {
+        margin-top: 0;
+      }
+    }
+    
+    .bw-brandsMarquee__wrapper {
+      display: flex;
+      justify-content: flex-start;
+      overflow: hidden;
+      padding: 8px;
+      background-color: {{ section.settings.marquee--background-color }};
+    }
+  
+    .bw-brandsMarquee__wrapper--{{ section.id }} .bw-brandsMarquee__innerImage {
+      white-space: nowrap;
+      display: flex;
+      width: max-content;
+      flex-wrap: nowrap;
+      animation: marquee {{ section.settings.marquee-speed }}s linear infinite;
+      align-items: stretch;
+    }
+  
+    .bw-brandsMarquee__wrapper--{{ section.id }} .bw-brandsMarquee__innerImage .bw-brandsMarquee__heading {
+      padding: 0 20px;
+    }
+  
+    @keyframes marquee {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(-100%, 0);
+      }
+    }
+  
+    .bw-brandsMarquee__wrapper--{{ section.id }} .bw-brandsMarquee__innerImage .bw-brandsMarquee__image {
+      width: 100%;
+      height: auto;
+    }
+  
+    .bw-brandsMarquee__wrapper--{{ section.id }} .bw-brandsMarquee__heading {
+      font-family: var(--font-secondary);
+      font-size: var(--font-p-16);
+      font-style: normal;
+      font-weight: 400;
+      color: {{ section.settings.marquee--text-color }};
+      line-height: 21px; 
+      margin: 0;
+      -webkit-text-size-adjust: 100%;
+    }
+  
+    @media (max-width: 768px) {
+      .bw-brandsMarquee__wrapper--{{ section.id }} .bw-brandsMarquee__heading {
+        font-size: var(--font-p-14);
+      }
+    }
+
+    .announcement-marquee #marquee-social-icons {
+      text-align: center;
+      margin-top: 0;
+
+      @media (min-width: 768px) {
+       order: 2;
+      }
+
+      ul {
+        margin: 0 15px;
+      }
+
+      li {
+        display: inline-block;
+        margin-bottom: 0;
+        padding: 0 10px;
+
+        i.fa-2x {
+          font-size: 1.75em;
+        }
+      }
+    }
+    .announcement-marquee a,
+    .announcement-marquee
+    .social-sharing.is-clean a{
+      color: {{ section.settings.marquee--text-color }};
+      padding: 8px 15px 0 15px;
+
+      @media (min-width: 768px) {
+       padding: 10px;
+      }
+    }
+
+    .announcement-marquee li a svg {
+      fill: {{ section.settings.marquee--text-color }};
+    }
+  </style>
+
+{% endif %}
+  
+{% schema %}
+{
+  "name": "Announcement Marquee",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_announcement_marquee",
+      "label": "Enable",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "marquee-speed",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "sec",
+      "label": "Marquee speed",
+      "default": 7
+    },
+    {
+      "type": "url",
+      "id": "announcement_link",
+      "label": "Announcement link",
+      "info": "Optional"
+    },
+    {
+      "type": "color",
+      "id": "marquee--background-color",
+      "label": "Marquee background",
+      "default": "#f1f1f1"
+    },
+    {
+      "type": "color",
+      "id": "marquee--text-color",
+      "label": "Marquee text",
+      "default": "#8e8e8e"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_social_icons",
+      "label": "Enable social icons",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Announcement Marquee Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Announcement Marquee Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement Marquee"
+    }
+  ]
+}
+{% endschema %}
