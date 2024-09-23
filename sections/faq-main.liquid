@@ -48,6 +48,27 @@
                 </p>
               {%- endif -%}
             {%- when 'question' -%}
+            <div class="tr-accordion">  
+              <details class="tr-accordion-item">
+                <summary class="tr-accordion-title">{{ block.settings.question }}</summary>
+                <div class="tr-accordion-content">
+                    {% if block.settings.top_image != blank %}
+                      <div class="tr-accordion-image tr-accordion-topImage">
+                        <img src="{{ block.settings.top_image | img_url: 'master' }}" width="100%" height="100%" alt="{{ block.settings.top_image.alt }}">
+                      </div>
+                    {% endif %}
+                    <p class="tr-accordion-text">
+                      {{ block.settings.answer }}
+                    </p>
+                    {% if block.settings.image != blank %}
+                      <div class="tr-accordion-image">
+                        <img src="{{ block.settings.image | img_url: 'master' }}" width="100%" height="100%" alt="{{ block.settings.image.alt }}">
+                      </div>
+                    {% endif %}
+                  </div>
+              </details>
+            </div>
+            {% comment %}
               <div class="tr-accordion">
                 <div class="tr-accordion-item">
                   <button>
@@ -73,6 +94,7 @@
                   </div>
                 </div>
               </div>
+            {% endcomment %}
           {%- endcase -%}
         {%- endfor -%}
       </div>

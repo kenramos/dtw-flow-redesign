@@ -1,1 +1,78 @@
-{"sections":{"main":{"type":"template--page","settings":{"page_title_enabled":true,"page_width":"full-width"}}},"order":["main"]}
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "main": {
+      "type": "template--page",
+      "settings": {
+        "page_title_enabled": true,
+        "page_width": "full-width"
+      }
+    },
+    "faq_main_gYhVYY": {
+      "type": "faq-main",
+      "blocks": {
+        "category_EzA6Xz": {
+          "type": "category",
+          "settings": {
+            "title": "General Information"
+          }
+        },
+        "question_ygDMCE": {
+          "type": "question",
+          "repeater": "{{ page.metafields.faq.general_information.value }}",
+          "settings": {
+            "question": "{{ block.repeater.question.value }}",
+            "answer": "{{ block.repeater.answer | metafield_tag }}"
+          }
+        },
+        "category_zFJXdW": {
+          "type": "category",
+          "settings": {
+            "title": "Ordering and Payment"
+          }
+        },
+        "category_BCzXxC": {
+          "type": "category",
+          "settings": {
+            "title": "Shipping and Delivery"
+          }
+        },
+        "category_MPn6Rk": {
+          "type": "category",
+          "settings": {
+            "title": "Product Information"
+          }
+        }
+      },
+      "block_order": [
+        "category_EzA6Xz",
+        "question_ygDMCE",
+        "category_zFJXdW",
+        "category_BCzXxC",
+        "category_MPn6Rk"
+      ],
+      "settings": {
+        "show_categories": true,
+        "color_scheme": "",
+        "padding_top": 224,
+        "padding_bottom": 120,
+        "mobile_padding_top": 40,
+        "mobile_padding_bottom": 52,
+        "wave_top_image": false,
+        "svg_color": "#FFFFFF"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "faq_main_gYhVYY"
+  ]
+}
