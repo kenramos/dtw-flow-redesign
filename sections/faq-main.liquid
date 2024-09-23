@@ -48,9 +48,6 @@
                 </p>
               {%- endif -%}
             {%- when 'question' -%}
-            {% if page.metafields.namespace != blank %}
-              Print namespace {{ page.metafields.namespace }}
-            {% endif %}
               <div class="tr-accordion">
                 <div class="tr-accordion-item">
                   <button>
@@ -101,7 +98,7 @@
     },
     {
       "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
+      "content": "Section padding"
     },
     {
       "type": "range",
@@ -110,7 +107,7 @@
       "max": 400,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
+      "label": "Top padding",
       "default": 224
     },
     {
@@ -120,7 +117,7 @@
       "max": 400,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
+      "label": "Bottom padding",
       "default": 120
     },
     {
@@ -130,7 +127,7 @@
       "max": 200,
       "step": 2,
       "unit": "px",
-      "label": "t:sections.all.padding.mobile_padding_top",
+      "label": "Mobile - Top padding",
       "default": 40
     },
     {
@@ -140,7 +137,7 @@
       "max": 200,
       "step": 2,
       "unit": "px",
-      "label": "t:sections.all.padding.mobile_padding_bottom",
+      "label": "Mobile - Bottom padding",
       "default": 52
     },
     {
@@ -159,38 +156,38 @@
   "blocks":[
     {
       "type": "category",
-      "name": "t:sections.faq_main.blocks.category.name",
+      "name": "Category",
       "settings": [
         {
           "type": "inline_richtext",
           "id": "title",
-          "label": "t:sections.faq_main.blocks.category.settings.title.label"
+          "label": "Title"
         }
       ]
     },
     {
       "type": "question",
-      "name": "t:sections.faq_main.blocks.question.name",
+      "name": "Question",
       "settings": [
         {
           "type": "inline_richtext",
           "id": "question",
-          "label": "t:sections.faq_main.blocks.question.settings.question.label"
+          "label": "Question"
         },
         {
           "type": "richtext",
           "id": "answer",
-          "label": "t:sections.faq_main.blocks.question.settings.answer.label"
+          "label": "Answer"
         },
         {
           "type": "image_picker",
           "id": "top_image",
-          "label": "t:sections.faq_main.blocks.question.settings.top_image.label"
+          "label": "Top Image"
         },
         {
           "type": "image_picker",
           "id": "image",
-          "label": "t:sections.faq_main.blocks.question.settings.image.label"
+          "label": "Image"
         }
       ]
     }
