@@ -48,6 +48,9 @@
                 </p>
               {%- endif -%}
             {%- when 'question' -%}
+            {% if page.metafields.namespace != blank %}
+              Print namespace {{ page.metafields.namespace }}
+            {% endif %}
               <div class="tr-accordion">
                 <div class="tr-accordion-item">
                   <button>
