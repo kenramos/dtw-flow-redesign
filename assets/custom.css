@@ -1,1 +1,225 @@
 /* Place any CSS overrides in this file. */
+
+/* FAQ css  */
+.tr-accordion-btn {
+  display: var(--display-flex);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.btn-acc a {
+  background: var(--color-white);
+  padding: 8px 24px 8px 24px;
+  border: 1px solid var(--color-white);
+  border-radius: 20px;
+  display: var(--display-block);
+  text-align: var(--text-center);
+  text-decoration: none;
+  color: var(--color-green);
+  font-size: var(--font-p-16);
+  line-height: 24px;
+  text-transform: var(--text-transform-capitalize);
+}
+
+.btn-acc {
+  margin: 0 0 16px 0;
+}
+
+.tr-accordion-main-section {
+  display: var(--display-flex);
+  flex-wrap: wrap;
+}
+
+.mnt-ac.active {
+  background-color: var(--color-green);
+  color: var(--color-white);
+}
+
+.tr-accordion-main-acc h2 {
+  font-size: 32px;
+  line-height: 41px;
+  color: var(--color-green);
+  padding-bottom: 16px;
+  margin-top: 16px;
+}
+
+.faq__category + .tr-accordion {
+  border-top: 1px solid rgba(247, 103, 151, 0.2);
+}
+
+.tr-accordion {
+  border-bottom: 1px solid rgba(247,103,151,.2);
+}
+
+.tr-accordion button {
+  position: relative;
+  display: var(--display-block);
+  text-align: var(--text-left);
+  width: 100%;
+  padding: 16px 0;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.tr-accordion button:hover,
+.tr-accordion button:focus {
+  cursor: pointer;
+  color: var(--color-pink);
+}
+
+.tr-accordion button:hover::after,
+.tr-accordion button:focus::after {
+  cursor: pointer;
+  color: var(--color-pink);
+  border: 1px solid var(--color-pink);
+}
+
+.tr-accordion button .tr-accordion-title {
+  font-size: var(--font-p-20);
+  line-height: 30px;
+  color: var(--color-green);
+  font-weight: var(--font-weight-600);
+}
+
+.tr-accordion button .icon {
+  display: inline-block;
+  position: absolute;
+  top: 18px;
+  right: 0;
+  width: 22px;
+  height: 22px;
+}
+
+.tr-accordion button .icon::before {
+  display: var(--display-block);
+  position: absolute;
+  content: '';
+  top: 9px;
+  left: 5px;
+  width: 10px;
+  height: 2px;
+  background: var(--color-pink);
+}
+
+.tr-accordion button .icon::after {
+  display: var(--display-block);
+  position: absolute;
+  content: '';
+  top: 5px;
+  left: 9px;
+  width: 2px;
+  height: 10px;
+  background: var(--color-pink);
+}
+
+.tr-accordion button[aria-expanded='true'] .tr-accordion-title,
+.tr-accordion-item.active .tr-accordion-title {
+  color: var(--color-pink);
+}
+
+.tr-accordion button[aria-expanded='true'] .icon::after,
+.tr-accordion-item.active .icon::after {
+  width: 0;
+}
+
+.tr-accordion button[aria-expanded='true'] + .tr-accordion-content {
+  opacity: 1;
+  max-height: 9em;
+  transition: all 200ms linear;
+  will-change: opacity, max-height;
+}
+
+.tr-accordion .tr-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 200ms linear, max-height 200ms linear;
+}
+
+.tr-accordion .tr-accordion-content p {
+  padding-bottom: 16px;
+}
+
+.tr-accordion .tr-accordion-content p,
+.tr-accordion .tr-accordion-content ul li {
+  font-size: var(--font-p-20);
+  line-height: 30px;
+  color: var(--color-green);
+  font-weight: var(--font-weight-400);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.tr-accordion .tr-accordion-content ul {
+  margin: 0;
+  padding-left: 25px;
+  padding-bottom: 10px;
+}
+
+.faq__category {
+  line-height: 41.6px;
+  text-transform: var(--text-transform-capitalize);
+  font-size: var(--font-p-32);
+  color: var(--color-green);
+  margin-bottom: 16px;
+  padding-top: 64px;
+}
+
+.faq__category:first-child {
+  padding-top: 0;
+}
+
+.faq_main_wrap_banner .image-with-text__content {
+  padding: 0;
+}
+
+.faq_main_wrap_banner .image-with-text__text.rte.body {
+  margin-top: 16px;
+  font-weight: var(--font-weight-500);
+}
+
+html .faq_main_wrap_banner .button.button--primary {
+  margin-top: 32px;
+}
+
+@media screen and (min-width: 991px) {
+  .tr-accordion-btn {
+    display: var(--display-block);
+    position: sticky;
+    top: 120px;
+    height: 100%;
+  }
+
+  .faq_main_wrap_banner .image-with-text__text.rte.body {
+    width: 100%;
+    max-width: 471px;
+  }
+
+  .template-faq-new .content-for-layout .shopify-section:first-child, 
+  .template-faq .content-for-layout .shopify-section:first-child {
+    overflow: visible;
+  }
+  
+  .faq_main_wrap_banner .isolate {
+    z-index: 1;
+  }
+
+  .faq_main_wrap_banner {
+    margin-bottom: -300px;
+  }
+
+  .tr-accordion-main-section {
+    flex-wrap: nowrap;
+    gap: 75px;
+  }
+
+  .btn-acc a {
+    padding: 8px 68px;
+  }
+
+  .tr-accordion-main-acc h2 {
+    margin-top: 0;
+  }
+}
+
+/* end FAQ css  */
